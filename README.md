@@ -10,11 +10,12 @@ BookMatch is a book recommendation app designed to help users discover new books
 - **Components**
 - **Setup Instructions**
 - **Folder Structure**
-- **Storybook**
+
   
 ## Features
 * User Onboarding: Registration, login, and interest-based quiz.
 * Swipe Interface: Like or skip book suggestions.
+* Library: A storage with all saved and liked books and personal recommendations based on likes and preferences.
 * Detailed Book Information: Comprehensive book details after liking a book.
 * User Profile: View and manage user profile, reading progress, and preferences.
 * Search Functionality: Search for books, authors, and genres.
@@ -24,7 +25,8 @@ BookMatch is a book recommendation app designed to help users discover new books
 - **React Vite**: For fast and modern frontend development.
 - **Tailwind CSS**: For styling and responsive design.
 - **Framer Motion**: For animations.
-- **Storybook**: For developing and testing UI components.
+
+## Live Site URL: (http://localhost:5182/)
 
 ## Setup Instructions
 
@@ -37,7 +39,7 @@ BookMatch is a book recommendation app designed to help users discover new books
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/bookmatch-app.git
+   git clone https://github.com/ValeriiaHubenko/bookmatch.git
    cd bookmatch-app
 
 
@@ -53,9 +55,3 @@ yarn dev
 
 4. Open http://localhost:3000 to view it in the browser.
 
-### Run Storybook
-To start Storybook and view UI components:
-
-npm run storybook
-# or
-yarn storybook
