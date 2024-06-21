@@ -693,7 +693,7 @@ const BookSwipe = () => {
     setLibrary([...library, currentBook]);
     setLikeMessage("Like!The book is saved in your library");
     setDislikeMessage("");
-    setTimeout(() => setLikeMessage(""), 1200);
+    setTimeout(() => setLikeMessage(""), 1500);
     moveToNextBook();
   };
 
