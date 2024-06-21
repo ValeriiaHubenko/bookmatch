@@ -26,7 +26,7 @@ BookMatch is a book recommendation app designed to help users discover new books
 - **Tailwind CSS**: For styling and responsive design.
 - **Framer Motion**: For animations.
 
-## Live Site URL: (http://localhost:5182/)
+## Live Site URL: (http://localhost:5173/)
 
 ## Setup Instructions
 
