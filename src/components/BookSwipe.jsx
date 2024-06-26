@@ -693,7 +693,7 @@ const BookSwipe = () => {
     setLibrary([...library, currentBook]);
     setLikeMessage("Like!The book is saved in your library");
     setDislikeMessage("");
-    setTimeout(() => setLikeMessage(""), 1500);
+    setTimeout(() => setLikeMessage(""), 1800);
     moveToNextBook();
   };
 
@@ -702,7 +702,7 @@ const BookSwipe = () => {
     setDislikedBooks([...dislikedBooks, currentBook]);
     setDislikeMessage("Nope:( Next one, please");
     setLikeMessage("");
-    setTimeout(() => setDislikeMessage(""), 1200);
+    setTimeout(() => setDislikeMessage(""), 1800);
     moveToNextBook();
   };
 
@@ -725,7 +725,7 @@ const BookSwipe = () => {
             <div
               key={index}
               className={`${cardClasses} ${
-                expandedBooks[index] ? "h-[930px]" : "h-[775px]"
+                expandedBooks[index] ? "h-[922px]" : "h-[777px]"
               } ${index === currentIndex ? "block" : "hidden"}`}
             >
               <div className="justify-center items-center inline-flex w-[430px] h-[390px] top-[45px] absolute">
@@ -737,7 +737,7 @@ const BookSwipe = () => {
                 </div>
                 <div className="flex flex-col items-center justify-center gap-2 w-[460px] top-[442px] absolute">
                   <div className="flex flex-col gap-1">
-                    <div className="text-center text-black text-3xl font-semibold font-['Poppins'] mt-1">
+                    <div className="text-center text-black text-3xl font-semibold font-['Poppins']">
                       &quot;{book.title}&quot;
                     </div>
                     <div className="text-center text-black text-lg font-medium font-['Lora']">

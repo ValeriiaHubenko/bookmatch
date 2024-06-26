@@ -20,7 +20,7 @@ const GenreSelection = () => {
   };
 
   useEffect(() => {
-    setCanProceed(selectedGenres.length > 0);
+    setCanProceed(selectedGenres.length > 2);
   }, [selectedGenres]);
 
   return (
