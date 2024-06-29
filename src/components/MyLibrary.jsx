@@ -1,15 +1,6 @@
 import { Link } from "wouter";
 import { useState } from "react";
-
-// import { useRoute } from "wouter";
-// import { Transition } from "react-transition-group";
  
-// const AnimatedRoute = () => {
-  
-//   const [match, params] = useRoute("/books/:id");
- 
-//   return <Transition in={match}>This is user ID: {params.id}</Transition>;
-// };
 
 const MyLibrary = () => {
   const books = [
@@ -17,43 +8,50 @@ const MyLibrary = () => {
       title: "The Great Gatsby",
       author: "F. Scott Fitzgerald",
       coverImage: "/images/GatsbyCover.webp",
-      id: "the_title_gatsby",
+      id: "the-title-gatsby",
     },
     {
       title: "To Kill a Mockingbird",
       author: "Harper Lee",
       coverImage: "/images/ToKillaMockingbirdCover.jpeg",
-      id: "to_kill_a_mockingbird",
+      id: "the-title-mockingbird",
     },
     {
       title: "1984",
       author: "George Orwell",
       coverImage: "/images/1984Cover.webp",
+      id: "the-title-1984",
     },
     {
       title: "Pride and Prejudice",
       author: "Jane Austen",
       coverImage: "/images/PrejudiceCover.png",
+      id: "the-title-pride",
     },
     {
       title: "War and Peace",
       author: "Leo Tolstoy",
       coverImage: "/images/WarandPeaceCover.png",
+      id: "the-title-war",
     },
     {
       title: "The Huckleberry Finn",
       author: "Mark Twain",
       coverImage: "/images/HuckleberryFinnCover.jpeg",
+      id: "the-title-huckleberry",
     },
     {
       title: "To the Lighthouse",
       author: "Virginia Woolf",
       coverImage: "/images/TotheLighthouseCover.png",
+      id: "the-title-lighthouse",
+      
     },
     {
       title: "The Picture of Dorian Gray",
       author: "Oscar Wilde",
       coverImage: "/images/ThePictureofDorian GrayCover.jpeg",
+      id: "the-title-dorian",
     },
     {
       title: "The Odyssey",
@@ -245,7 +243,7 @@ const MyLibrary = () => {
 
         <div className="grid grid-cols-7 gap-4">
           {books.slice(0, displayedBooks).map((book, index) => (
-            <Link key={index} to={`/bookinfo/:${book.id}`}>
+            <Link key={index} to={`/bookinfo/${book.id}`}>
               <div className="w-[165px] flex-col justify-center items-center gap-3 flex mb-1">
                 <img
                   src={book.coverImage}

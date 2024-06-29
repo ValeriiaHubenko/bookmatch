@@ -1,32 +1,6 @@
-import { Link } from "wouter";
+import { Link, useRoute } from "wouter";
+import {books} from "../data/books.js";
 
-const books = [
-  {
-    coverImage: "/images/GatsbyCover.webp",
-    match: 92,
-    title: "The Great Gatsby",
-    author: "F. Scott Fitzgerald",
-    tags: [
-      "Classic Fiction",
-      "Wealth",
-      "Love",
-      "Tragedy",
-      "Classics",
-      "Romance",
-    ],
-    purchase: ["Amazon", "Barnes & Noble"],
-    synopsis:
-      "The Great Gatsby is a novel set in the Roaring Twenties that tells the story of Jay Gatsby, a mysterious millionaire, and his unrequited love for Daisy Buchanan. Through the eyes of narrator Nick Carraway, we explore themes of decadence, idealism, and the American Dream.",
-    published: "1925 by Charles Scribner's Sons",
-    pages: "180",
-    language: "English",
-    authorDescription:
-      "F. Scott Fitzgerald was an American novelist and short story writer, widely regarded as one of the greatest American writers of the 20th century. His works illustrate the Jazz Age and the American Dream. His most famous novel, The Great Gatsby, remains a defining work of American literature.",
-    rating: 4,
-    reviews: 1345,
-    id: "the_title_gatsby",
-  },
-];
 
 const reviews = [
   {
@@ -66,7 +40,16 @@ const related = [
   },
 ];
 
+
 const BookInfo = () => {
+
+  const [match, params] = useRoute("/bookinfo/:id");
+
+if (!match) return (<div>Loading...</div> ) 
+
+  const {id: bookId} = params;
+  const bookData = books[bookId]; 
+
   return (
     <>
       <Link
@@ -96,17 +79,16 @@ const BookInfo = () => {
       </div>
 
       <div className="mb-16">
-        {books.map((book, index) => (
-          <div key={index}>
+          <div>
             <div className="flex flex-row gap-24 mt-10">
               <div className="justify-start items-start flex flex-col ml-96">
                 <img
-                  src={book.coverImage}
+                  src={bookData.coverImage}
                   className="w-[540px] h-[580px] rounded-2xl"
                 />
-                <div className="top-[758px] absolute left-[594px] px-4 py-2 bg-white rounded-xl border-2 border-yellow">
+                <div className="top-[742px] absolute left-[594px] px-4 py-2 bg-white rounded-xl border-2 border-yellow">
                   <div className="text-center text-black text-lg font-medium font-['Poppins']">
-                    Match {book.match}%
+                    Match {bookData.match}%
                   </div>
                 </div>
 
@@ -138,16 +120,16 @@ const BookInfo = () => {
               <div className="flex flex-col items-start justify-start gap-5 mt-10">
                 <div className="flex flex-col gap-2 items-start justify-start">
                   <div className="text-center text-red text-4xl font-semibold font-['Poppins']">
-                    {book.title}
+                    {bookData.title}
                   </div>
                   <div className="text-center text-black text-3xl font-medium font-['Lora']">
-                    by {book.author}
+                    by {bookData.author}
                   </div>
                 </div>
 
                 <div className="justify-start items-start flex">
                   <div className="grid grid-cols-3 gap-2.5 justify-center items-center mt-1 mb-1">
-                    {book.tags.map((tag, i) => (
+                    {bookData.tags.map((tag, i) => (
                       <div
                         key={i}
                         className="py-1.5 px-2.5 rounded-xl border border-beige"
@@ -165,7 +147,7 @@ const BookInfo = () => {
                     Where to Buy:{" "}
                   </div>
                   <div className="flex flex-row gap-9">
-                    {book.purchase.map((purchase, i) => (
+                    {bookData.purchase.map((purchase, i) => (
                       <div key={i}>
                         <button className="text-center text-blue text-xl font-semibold font-['Poppins'] underline hover:text-red active:text-yellow">
                           {" "}
@@ -182,7 +164,7 @@ const BookInfo = () => {
                   </div>
                   <div className="text-left text-black text-lg font-medium font-['Lora']">
                     {" "}
-                    {book.synopsis}{" "}
+                    {bookData.synopsis}{" "}
                   </div>
                 </div>
 
@@ -192,7 +174,7 @@ const BookInfo = () => {
                   </div>
                   <div className="text-center text-black text-lg font-medium font-['Lora']">
                     {" "}
-                    {book.published}{" "}
+                    {bookData.published}{" "}
                   </div>
                 </div>
 
@@ -201,14 +183,14 @@ const BookInfo = () => {
                     Page Count:
                     <span className=" text-black text-lg font-normal font-['Lora'] leading-snug text-left mb-2 pl-1">
                       {" "}
-                      {book.pages}
+                      {bookData.pages}
                     </span>
                   </div>
                   <div className="text-xl font-semibold text-black font-['Poppins'] text-left mt-1">
                     Language:
                     <span className=" text-black text-lg font-normal font-['Lora'] leading-snug text-left mb-2 pl-1">
                       {" "}
-                      {book.language}
+                      {bookData.language}
                     </span>
                   </div>
                 </div>
@@ -219,7 +201,7 @@ const BookInfo = () => {
                   </div>
                   <div className="text-left text-black text-lg font-medium font-['Lora']">
                     {" "}
-                    {book.authorDescription}{" "}
+                    {bookData.authorDescription}{" "}
                   </div>
                 </div>
 
@@ -240,8 +222,8 @@ const BookInfo = () => {
                         >
                           <path
                             d="M11.5461 2.9842C11.7248 2.59678 12.2754 2.59677 12.4541 2.98417L15.1041 8.728L21.3856 9.47328C21.8093 9.52355 21.9795 10.0473 21.6662 10.3369L17.0221 14.631L18.2549 20.8359C18.338 21.2543 17.8926 21.578 17.5202 21.3696L12.0001 18.28L6.48001 21.3704C6.1077 21.5789 5.66219 21.2552 5.74534 20.8367L6.97809 14.632L2.33365 10.3359C2.02047 10.0462 2.19062 9.52259 2.61427 9.47233L8.89709 8.727L11.5461 2.9842Z"
-                            stroke={i < book.rating ? "#FFC107" : "#DED2CE"}
-                            fill={i < book.rating ? "#FFC107" : "#FFFFFF"}
+                            stroke={i < bookData.rating ? "#FFC107" : "#DED2CE"}
+                            fill={i < bookData.rating ? "#FFC107" : "#FFFFFF"}
                             strokeWidth="1.5"
                             strokeLinejoin="round"
                           />
@@ -250,7 +232,7 @@ const BookInfo = () => {
                     </div>
 
                     <div className="text-black text-base font-medium font-['Poppins']">
-                      ({book.reviews} reviews)
+                      ({bookData.reviews} reviews)
                     </div>
                   </div>
 
@@ -345,7 +327,6 @@ const BookInfo = () => {
               </div>
             </div>
           </div>
-        ))}
       </div>
     </>
   );
