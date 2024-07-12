@@ -45,12 +45,12 @@ BookMatch is a book recommendation app designed to help users discover new books
 
 2. Install dependencies:
 npm install
-# or
+or
 yarn install
 
 3. Start the development server:
 npm run dev
-# or
+or
 yarn dev
 
 4. Open http://localhost:3000 to view it in the browser.
